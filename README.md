@@ -1,37 +1,95 @@
-# Elderly-Abnormal-Activity-Detection
-This project uses deep learning and machine learning models to monitor elderly individuals through CCTV footage. It detects abnormal activities such as falls, strokes, and other health events using pose estimation and classification. The system triggers real-time alerts via email for immediate intervention.
-Overview
+# AlzCare Backend
 
-This project is a real-time elderly fall and abnormal activity detection system using CCTV footage. The system leverages MediaPipe Pose Estimation and a CNN-LSTM deep learning model to detect activities such as falls, strokes, and other health events. If an abnormal activity is detected for more than the threshold, an email alert is automatically sent to notify caregivers.
+AlzCare is a **smart assistance system for Alzheimer’s patients**, designed to monitor daily activities, detect abnormal patterns, and notify caregivers in real-time. This backend repository handles activity recognition, alert generation, and integration with the frontend app.
 
-Features
+---
 
-✅ Real-time pose detection using MediaPipe
-✅ Activity classification using deep learning (CNN-LSTM)
-✅ Email alerts for abnormal activities (fall, heart stroke, headache, cough, etc.)
-✅ Web-based interface for live video streaming
-✅ Secure and efficient real-time video processing
+## **Project Overview**
 
-📂 Elderly_Activity_Detection
-│── app.py                 # Main Flask application
-│── activity_classifier_optimized.h5  # Trained deep learning model
-│── scaler.pkl             # StandardScaler model for preprocessing
-│── label_encoder.pkl      # Label Encoder for activity classes
-│── templates
-│   ├── index.html         # Web interface for video streaming
-│── static
-│   ├── styles.css         # Frontend styling
-└── README.md              # Project documentation
+AlzCare leverages advanced **machine learning and deep learning models** to track patient activities and ensure safety:
 
-**Set-UP file:**
-1.Clone the project files into the desktop folder of your system.
+- **CNN-LSTM**: A hybrid deep learning approach combining **Convolutional Neural Networks (CNN)** and **Long Short-Term Memory (LSTM)** networks. Ideal for recognizing complex activities like walking, sitting, or falling.  
+  - Accuracy: **80%**
+  - Provides the best results for sequential activities due to hybrid modeling.  
 
-2.Open Command Prompt from the project folder and activate the environment using: conda activate human.
+- **Random Forest (RF)**: Traditional machine learning model for activity classification.  
+  - Accuracy: **79%**
 
-3.Run python training.py to collect dataset samples. Click on the camera feed, press 's' to save a pose with a label, or 'q' to stop data collection.
+- **CNN**: Pure deep learning model for image/frame-based activity recognition.  
+  - Accuracy: **81%**
 
-4.Open and execute each cell in train.ipynb to train the model with the collected data.
+> Although CNN has slightly higher raw accuracy, the **CNN-LSTM hybrid approach** is more effective for real-world activity tracking, especially for sequential or temporal activities like walking or transitions between activities.
 
-5.Start the application by running: python app.py in the command prompt.
+---
 
-6.Open localhost:5000 in a web browser to view the results.
+## **Key Features**
+
+- **Real-Time Abnormal Activity Detection:** Monitors Alzheimer’s patients’ daily activities using video frames and sensor data.  
+- **Alert System:** Automatically sends alerts to caregivers via **SMS** and **Email** in case of abnormal activities.  
+- **Multi-Model Support:** Supports Random Forest, CNN, and CNN-LSTM for activity recognition.  
+- **Easy Integration:** Works seamlessly with the frontend Flutter app to provide real-time notifications and reports.  
+- **Dataset & Pre-Trained Models:** Pre-trained models and dataset are included in a large ZIP file for easy setup.
+
+---
+
+## **Backend ZIP File**
+
+The backend contains all necessary pre-trained models, scripts, and data. You can download the ZIP file from Google Drive:
+
+[Download Backend ZIP](https://drive.google.com/uc?export=download&id=1Ynp6ugQhgM3cJMr588PfFNEsXckapsPP)
+
+---
+
+## **Installation & Setup**
+
+1. Clone this repository:
+   ```bash
+   git clone <backend-repo-url>
+   cd AlzCare-backend
+
+2. Extract the ZIP file (downloaded from Google Drive) into the project directory.
+
+3. Install required Python packages:
+    ```bash
+    pip install -r requirements.txt
+
+4. Run the backend server:
+    ```bash
+    python app.py
+
+Ensure you have configured email/SMS credentials for alerts.
+
+---
+
+## Contributing
+
+We welcome contributions to improve AlzCare’s backend, including:
+
+- Enhancing activity recognition models
+- Optimizing alert delivery
+- Adding new features for caregiver support
+
+Please create a pull request or open an issue for collaboration.
+
+---
+
+## Contact
+
+For questions, suggestions, or support:
+
+- **Developer Email:** riyakansal174@gmail.com
+- **Project GitHub:** [AlzCare](https://github.com/riyakansal04/AlzCare-Backend)
+
+---
+
+## Acknowledgements
+
+- **Deep Learning models:** CNN, LSTM
+- **Machine Learning:** Random Forest
+- **SMS & Email integration libraries**
+
+AlzCare ensures safety, support, and peace of mind for Alzheimer’s patients and their caregivers by combining cutting-edge AI with user-friendly mobile integration.
+
+**Team AlzCare** | Authors: Riya Kansal [LinkedIn](https://www.linkedin.com/in/riya-kansal-963042268/) • [GitHub](https://github.com/riyakansal04)
+
+– Committed to enhancing safety and care for Alzheimer’s patients.
